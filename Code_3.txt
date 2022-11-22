@@ -1,0 +1,45 @@
+class Client:
+    def client(self):
+        mac = MacImplementor()
+        m= Mobilewindows(mac)
+        m.printm()
+        m.Operation(mac)
+
+class Windows:
+    def __init__(self, imp):
+        self.imp = imp
+        
+    def Operation(self,imp):
+        imp.OperationImp()
+        
+class Mobilewindows(Windows):
+    def __init__(self,obj):
+        Windows.__init__(self,obj)
+        
+    def printm(self):
+        print("Hello from Mobile Windows")
+        
+class Desktopwindows(Windows):
+    def __init__(self,obj):
+        Windows.__init__(self,obj)
+        
+    def printm(self):
+        print("Hello from Desktop Windows")
+        
+class WindowsImp:
+    def OperationImp(self):
+        print("Calling function Operation Imp in Windows imp")
+        
+class LinuxImplementor(WindowsImp):
+    def OperationImp(self):
+        print("Calling function Operation Imp in Linux imp")
+        
+class MacImplementor(WindowsImp):
+    def OperationImp(self):
+        print("Calling function Operation Imp in Mac imp")
+
+
+c = Client()
+c.client()
+        
+    

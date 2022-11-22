@@ -1,0 +1,68 @@
+class Vehicle:
+    def __init__(self, milage, colour, tyres):
+        self.milage = milage
+        self.colour= colour
+        self.tyres= tyres
+    
+    def printv(self):
+        print("\nThe Milage of the vehicle is = ",self.milage )
+        print("\nThe Colour of the vehicle is = ",self.colour )
+        print("\nThe Number of the tyres are = ",self.tyres )
+
+class Bike(Vehicle):
+    def __init__(self,milage, colour, tyres):
+        Vehicle.__init__(self,milage, colour, tyres)
+        
+    def printb(self):
+        print("\n Vehicle type = Bike")
+        return "Bike"
+        
+    
+class Bus(Vehicle):
+    def __init__(self,milage, colour, tyres):
+        Vehicle.__init__(self,milage, colour, tyres)
+        
+    def printb(self):
+        print("\n Vehicle type = Bus")
+        return "Bus"
+        
+class Workshop:
+    def __init__(self, typee):
+        self.typee= typee
+        
+class Produce(Workshop):
+    def __init__(self, typee):
+        Workshop.__init__(self,typee)
+        
+    def printp(self):  
+        print("Vehicle type = ", self.typee)
+        print("Under Production procedure ......")
+        
+class Assemble(Workshop):
+    def __init__(self, typee):
+        Workshop.__init__(self,typee)
+        
+    def printp(self): 
+        print("Vehicle type = ", self.typee)
+        print("Under Assembling procedure ......")
+        
+
+
+b = Bike(100,"Red",4) 
+p = Produce(b.printb())
+b.printv()
+p.printp()
+
+
+print('\n')
+bus = Bus(200,"Blue",5)
+a = Produce(bus.printb())
+bus.printv()
+a.printp()
+
+
+
+
+
+    
+    

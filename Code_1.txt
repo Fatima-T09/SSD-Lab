@@ -1,0 +1,51 @@
+class Account:
+    def __init__(self, account_type, amount):
+        self.account_type= account_type
+        self.amount=amount
+    
+class Current_Account(Account):
+    def __init__(self,account_type,amount):
+        Account.__init__(self,account_type,amount)
+        
+    def deposit_money(self,amount):
+        if self.account_type == 1:
+            print("Amount has been added to your savings account", amount)
+        else:
+            i= Savings_Account(self.account_type,amount)
+            i.deposit_money(amount)
+        
+class Savings_Account(Account):
+    def __init__(self,account_type,amount):
+        Account.__init__(self,account_type,amount)
+    
+    def deposit_money(self,amount):
+        if self.account_type== 2:
+            print("Amount has been added to your savings account", amount)
+        else:
+            i= International_Account(self.account_type,amount)
+            i.deposit_money(amount)
+            
+class International_Account(Account):
+    def __init__(self,account_type,amount):
+        Account.__init__(self,account_type,amount)
+        
+    def deposit_money(self,amount):
+        print("Amount has been added to your international account", self.amount)
+        
+            
+class User:
+    
+    def Deposit_Money(self):
+        val =input("Enter 1. for Savings Account, 2 for Current Account, 3 for International Account")
+        amount = input("Enter the amount ")
+        
+        c = Current_Account(val,amount)
+        c.deposit_money(amount)
+        
+            
+u = User()
+u.Deposit_Money()
+        
+        
+        
+        
